@@ -3,7 +3,7 @@
 <?php 
 if ($this->session->flashdata('message') != '')
 	{
-	    $flahsdata = $this->session->flashdata('message'); 
+	    $flashdata = $this->session->flashdata('message'); 
 	}
 ?>
 
@@ -154,14 +154,14 @@ if ($this->session->flashdata('message') != '')
 <div class="tabbable"> <!-- Only required for left/right tabs -->
 	<ul class="nav nav-tabs">
 		<li class="active"><a href="#tab1">Edit</a></li>
-		<li><a href="/shots/view/<?php echo $shot['shot_id'] ?>">Comments</a></li>
+                <li><a href="<?php echo site_url("/shots/view/{$shot['shot_id']}") ?>">Comments</a></li>
 	</ul>
 </div>
 
-<?php if (isset($flahsdata)):?>
+<?php if (isset($flashdata)):?>
 <div class="alert alert-success">
 	<button type="button" class="close" data-dismiss="alert">&times;</button>
-	<?php echo $flahsdata ?>
+	<?php echo $flashdata ?>
 </div>
 <?php endif ?>
 
