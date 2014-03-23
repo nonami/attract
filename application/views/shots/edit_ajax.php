@@ -64,7 +64,7 @@
 				//}
 				
 				
-				$.post("/shots/post_add_shot_task/" + shot_id, { 'task_id': task_id, 'status_id': status_id })
+				$.post("<?php echo site_url('/shots/post_add_shot_task/'); ?>" + "/" + shot_id, { 'task_id': task_id, 'status_id': status_id })
 				.done(function(data) {
 					shot_task_id = data;
 					$(target).after(multiselect_users(shot_task_id));		
@@ -263,7 +263,7 @@
 	<div class="controls">
 		<a href="#" class="btn btn-inverse edit-shot-submit">Edit Shot</a>
 		<a href="#" class="btn edit-shot-cancel">Cancel</a>
-		<a href="<?php echo '/shots/delete/' . $shot['shot_id'] ?>" id="submit" name="submit" class="btn btn-danger">Delete Shot</a>
+		<a href="<?php echo site_url('/shots/delete/' . $shot['shot_id']); ?>" id="submit" name="submit" class="btn btn-danger">Delete Shot</a>
 	</div>
 </div>
 

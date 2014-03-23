@@ -91,7 +91,7 @@ if ($this->session->flashdata('message') != '')
 				//}
 				
 				
-				$.post("/shots/post_add_shot_task/" + shot_id, { 'task_id': task_id, 'status_id': status_id })
+				$.post("<?php echo site_url('/shots/post_add_shot_task/'); ?>" + "/"+ shot_id, { 'task_id': task_id, 'status_id': status_id })
 				.done(function(data) {
 					shot_task_id = data;
 					$(target).after(multiselect_users(shot_task_id));		
@@ -315,7 +315,7 @@ if ($this->session->flashdata('message') != '')
 	<div class="row">
 	  <div class="col-md-12">
 	    <button id="submit" name="submit" class="btn btn-default">Update Shot</button>
-	    <a href="<?php echo '/shots/delete/' . $shot['shot_id'] ?>" class="btn btn-danger">Delete Shot</a>
+	    <a href="<?php echo site_url('/shots/delete/' . $shot['shot_id']); ?>" class="btn btn-danger">Delete Shot</a>
 	  </div>
 	</div>
 	
