@@ -153,7 +153,7 @@ if ($this->session->flashdata('message') != '') {
         $.post(comments_subscribe_url, {shot_id: <?php echo $shot['shot_id'] ?>, subscription_type: 'comments'})
                 .done(function(data) {
                     console.log('Subscribed to comments');
-                    //attract.toastNotify({message: 'Unsubscribed from comments', type: 'success'});
+                    attract.toastNotify({message: 'Unsubscribed from comments', type: 'success'});
                     $('#comments_subscribe').text('Unsubscribe from comments');
                     $('#comments_subscribe').attr('id', 'comments_unsubscribe');
                 });
@@ -163,7 +163,7 @@ if ($this->session->flashdata('message') != '') {
         $.post(comments_unsubscribe_url, {shot_id: <?php echo $shot['shot_id'] ?>, subscription_type: 'comments'})
                 .done(function(data) {
                     console.log('Unsubscribed from comments');
-                    //attract.toastNotify({message: 'Unsubscribed from comments', type: 'success'});
+                    attract.toastNotify({message: 'Unsubscribed from comments', type: 'success'});
                     $('#comments_unsubscribe').text('Subscribe to comments');
                     $('#comments_unsubscribe').attr('id', 'comments_subscribe');
                 });

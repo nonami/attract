@@ -79,6 +79,8 @@
         </div><!--/.navbar-collapse -->
       </div>
     </div>
+      
+      <div id="toast_container" class="container" style="display: none;position: fixed;top: 80px;right:30px;z-index: 999999;opacity: 0.8;"></div>
 
     <div class="container">
     	<div class="row">
