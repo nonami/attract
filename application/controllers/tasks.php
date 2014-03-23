@@ -46,7 +46,8 @@ class Tasks extends Admin_Controller {
 
 			$this->session->set_flashdata('message', 'Task <strong>'. $task_name .'</strong> added to database!');
 
-			redirect('/tasks/create');
+			//redirect('/tasks/create');
+                        redirect('/tasks/');
 			
 		}
 	}

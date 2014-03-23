@@ -4,7 +4,7 @@
 
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title">Task details</h4>
+            <h4 class="modal-title">Status' details</h4>
         </div>
         <div class="modal-body">
             <?php $attributes = array('id' => 'the-status'); ?>
@@ -20,7 +20,7 @@
 
             <!-- Text input-->
             <div class="form-group">
-                <label class="control-label" for="status_color">Status name</label>
+                <label class="control-label" for="status_color">Status color</label>
                 <input id="status_color" name="status_color" value="<?php echo $status['status_color'] ?>" class="form-control" type="text">
                 <p class="help-block">Select a color</p>
             </div>
