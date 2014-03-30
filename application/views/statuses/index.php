@@ -1,6 +1,18 @@
 <?php $span_value = ($use_sidebar == TRUE ? "col-md-9" : "col-md-12"); ?>
 
 <div class="<?php echo $span_value ?>">
+    <?php
+    if ($this->session->flashdata('message') != '') {
+        $flashdata = $this->session->flashdata('message');
+    }
+    ?>
+
+    <?php if (isset($flashdata)): ?>
+        <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <?php echo $flashdata ?>
+        </div>
+        <?php endif ?>
 
     <h2><?php echo $title ?></h2>
 
@@ -15,13 +27,13 @@
         </thead>
         <tbody>
 
-            <?php foreach ($statuses as $status): ?>
+<?php foreach ($statuses as $status): ?>
                 <tr>
                     <td><?php echo $status['status_id'] ?></td>
                     <td><a href="#" status="<?php echo site_url('/statuses/edit/' . $status['status_id']) ?>" data-toggle="modal"><?php echo $status['status_name'] ?></a></td>
-                    <td><span class="label label-default" style="background-color:<?php echo $status['status_color'] ?>"><?php echo $status['status_color'] ?></span></td>
+                    <td><span class="label label-default color-label" style="background-color:<?php echo $status['status_color'] ?>"><?php echo $status['status_color'] ?></span></td>
                 </tr>
-            <?php endforeach ?>
+<?php endforeach ?>
 
         </tbody>
         <tfoot>
@@ -33,7 +45,7 @@
         </tfoot>
     </table>
 
-    <a class="btn btn-default btn-lg btn-block" href="<?php echo site_url('/statuses/create') ?>">Add status</a>
+    <a class="btn btn-default btn-lg btn-block" data-toggle="modal" status="<?php echo site_url('/statuses/create') ?>" href="#">Add status</a>
 </div><!--/span-->
 
 

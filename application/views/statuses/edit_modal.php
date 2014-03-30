@@ -4,31 +4,36 @@
 
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title">Status' details</h4>
+            <h4 class="modal-title"><?php echo $title ?></h4>
         </div>
         <div class="modal-body">
             <?php $attributes = array('id' => 'the-status'); ?>
-            <?php echo form_open(site_url("statuses/edit/" . $status['status_id']), $attributes); ?>
-            <?php echo form_hidden('status_id', $status['status_id']); ?>
+            <?php echo form_open(site_url($form_url), $attributes); ?>
+            <?php if ($status) {
+                echo form_hidden('status_id', $status['status_id']);
+            } ?>
 
             <!-- Text input-->
             <div class="form-group">
                 <label class="control-label" for="status_name">Status name</label>
-                <input id="status_name" name="status_name" value="<?php echo $status['status_name'] ?>" class="form-control" type="text" required="">
+                <input id="status_name" name="status_name" value="<?php if ($status) {echo $status['status_name'];} ?>" class="form-control" type="text" required="">
                 <p class="help-block">Enter the status name, e.g. "In Progress"</p>
             </div>
 
             <!-- Text input-->
             <div class="form-group">
                 <label class="control-label" for="status_color">Status color</label>
-                <input id="status_color" name="status_color" value="<?php echo $status['status_color'] ?>" class="form-control" type="text">
+                <input id="status_color" name="status_color" value="<?php if ($status) {echo $status['status_color'];} ?>" class="form-control" type="text">
                 <p class="help-block">Select a color</p>
             </div>
 
             <?php echo form_close(); ?>
         </div>
         <div class="modal-footer">
+            
+            <?php if ($status): ?>
             <a href="<?php echo site_url("/status/delete/{$status['status_id']}"); ?>" id="delete" class="btn btn-danger pull-left"><i class="glyphicon glyphicon-fire icon-white"></i> Delete</a>
+            <?php endif; ?>
             <button type="submit" id="submit" class="btn btn-primary" >Save Changes</button>
             <button class="btn btn-default" data-dismiss="modal">Cancel</button>
         </div><!-- /.modal-content -->

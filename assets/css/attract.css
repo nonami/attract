@@ -124,3 +124,8 @@ tr.success .make-current {
 .seen_notification a {
 	color: #CCC;
 }
+
+.color-label {
+    display: block;
+    width: 100px;
+}
