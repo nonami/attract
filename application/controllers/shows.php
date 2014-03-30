@@ -48,7 +48,8 @@ class Shows extends Common_Auth_Controller {
 		
 		if ($this->form_validation->run() === FALSE)
 		{
-			$this->load->view('templates/header', $data);	
+			$this->load->view('templates/header', $data);
+                        $this->load->view('templates/sidebar', $data);
 			$this->load->view('shows/create', $data);
 			$this->load->view('templates/footer');
 			
